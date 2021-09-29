@@ -40,6 +40,7 @@ public class MyServer {
 							// 添加编解码器
 							ch.pipeline().addLast("codec", new MyCodec());
 							ch.pipeline().addLast(new MyServerHandler());
+							ch.pipeline().addLast(new MyServerHandler2());
 						}
 					}).option(ChannelOption.SO_BACKLOG, 128).childOption(ChannelOption.SO_KEEPALIVE, true);
 

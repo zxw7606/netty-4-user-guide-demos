@@ -1,8 +1,6 @@
 package com.waylau.netty.demo.codec;
 
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.channel.*;
 
 /**
  * My ServerHandler.
@@ -21,6 +19,15 @@ public class MyServerHandler extends SimpleChannelInboundHandler<Object> {
 			System.out.println("Client->Server:" + incoming.remoteAddress() + msg.getBody());
 			incoming.write(obj);
 		}
+		ChannelPromise channelPromise = incoming.voidPromise();
+
+		channelPromise.addListener(new ChannelFutureListener() {
+			@Override
+			public void operationComplete(ChannelFuture future) throws Exception {
+				System.out.println("发送完毕");
+			}
+		});
+//		ctx.write(obj, channelPromise)
 	}
 
 	@Override
