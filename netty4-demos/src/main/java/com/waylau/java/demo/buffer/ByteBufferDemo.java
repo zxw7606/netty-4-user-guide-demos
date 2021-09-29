@@ -21,19 +21,15 @@ public class ByteBufferDemo {
 		ByteBuffer buffer = ByteBuffer.allocate(10);
 		System.out.println("------------初始时缓冲区------------");
 		printBuffer(buffer);
-
 		// 添加一些数据到缓冲区中
 		System.out.println("------------添加数据到缓冲区------------");
-
 		String s = "love";
 		buffer.put(s.getBytes());
 		printBuffer(buffer);
-
 		// 切换成读模式
 		System.out.println("------------执行flip切换到读取模式------------");
 		buffer.flip();
 		printBuffer(buffer);
-
 		// 读取数据
 		System.out.println("------------读取数据------------");
 
@@ -48,7 +44,6 @@ public class ByteBufferDemo {
 		System.out.println("------------执行compact------------");
 		buffer.compact();
 		printBuffer(buffer);
-
 		// 执行clear
 		System.out.println("------------执行clear清空缓冲区------------");
 		buffer.clear();

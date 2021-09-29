@@ -34,7 +34,7 @@ public class ByteBufDemo {
 		System.out.println("------------读取数据------------");
 
 		while (buffer.isReadable()) {
-			System.out.println(buffer.readByte());
+			System.out.println((char)buffer.readByte());
 		}
 
 		printBuffer(buffer);
